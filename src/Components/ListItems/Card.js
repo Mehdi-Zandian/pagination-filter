@@ -1,24 +1,34 @@
-import React from "react";
+import "lazysizes";
+// import a plugin
+import "lazysizes/plugins/parent-fit/ls.parent-fit";
 
 function Card({ char }) {
   return (
     <div className="card">
-      <div className="md:w-60 max-h-72">
-        <img className="card__img" src={char?.image} alt="Character Image" />
+      <div className="md:w-60">
+        <img
+          className="card__img lazyload blur-up"
+          data-src={char?.image}
+          alt="Character Image"
+        />
       </div>
 
       <div className="p-3">
         <div>
-          <h1 className="font-bold text-3xl">{char?.name || "Not Found"}</h1>
+          <h1 className="font-bold text-3xl">
+            {char?.name.length > 18
+              ? char?.name.slice(0, 18).concat("...")
+              : char?.name || "Not Found"}
+          </h1>
           <h1>
             <span
-              className={`rounded-full inline-block w-2 h-2 bg-${
+              className={`rounded-full inline-block w-2 h-2 ${
                 char?.status == "Alive"
-                  ? "green"
+                  ? "bg-green-500"
                   : char?.status == "Dead"
-                  ? "red"
-                  : "gray"
-              }-500 mr-2`}
+                  ? "bg-red-500"
+                  : "bg-gray-500"
+              } mr-2`}
             ></span>
             <span>{char?.status || "Not Found"}</span>
             {" - "}

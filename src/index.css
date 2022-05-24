@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* my style */
 .nav__items a {
   @apply hover:opacity-60 transition-opacity;
 }
@@ -13,6 +14,7 @@
   @apply rounded-t-xl md:rounded-tr-none md:rounded-bl-xl object-center object-cover w-full h-full;
 }
 
+/* loading spinner */
 .loader {
   position: absolute;
   left: 47%;
@@ -25,7 +27,6 @@
   box-sizing: border-box;
   animation: rotation 2s linear infinite;
 }
-
 @keyframes rotation {
   0% {
     transform: rotate(0deg);
@@ -33,4 +34,18 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* lazysizes package */
+.blur-up {
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  transition: filter 400ms, -webkit-filter 400ms;
+  opacity: 0;
+}
+
+.blur-up.lazyloaded {
+  -webkit-filter: blur(0);
+  filter: blur(0);
+  opacity: 1;
 }

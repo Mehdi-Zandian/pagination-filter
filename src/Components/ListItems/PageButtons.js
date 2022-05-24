@@ -1,67 +1,70 @@
 function PageButtons({ setPage, currentPage }) {
   return (
-    <div className="flex justify-center text-sm pb-5 items-center text-white">
-      <button
-        onClick={() => setPage("prev")}
-        className="text-yellow-500 p-1 px-3 m-2"
-      >
-        Previous
-      </button>
+    <div className="flex mx-auto flex-col justify-center md:text-base text-xs pb-40 items-center text-white">
+      <div>
+        {currentPage > 2 && (
+          <>
+            <button
+              onClick={() => setPage("select", 1)}
+              className="mx-2 w-8 h-8 rounded-full border-yellow-500 border-2"
+            >
+              1
+            </button>
 
-      {currentPage > 2 && (
-        <>
+            <span className="tetx-white font-bold text-xl">...</span>
+          </>
+        )}
+
+        {currentPage != 1 && (
           <button
-            onClick={() => setPage("select", 1)}
-            className="m-2 w-9 h-9 rounded-full border-yellow-500 border-2"
+            onClick={() => setPage("select", currentPage - 1)}
+            className="mx-2 w-8 h-8 rounded-full border-yellow-500 border-2"
           >
-            1
+            {currentPage - 1}
           </button>
+        )}
 
-          <span className="tetx-white font-bold text-xl m-2">...</span>
-        </>
-      )}
-
-      {currentPage != 1 && (
-        <button
-          onClick={() => setPage("select", currentPage - 1)}
-          className="m-2 w-9 h-9 rounded-full border-yellow-500 border-2"
-        >
-          {currentPage - 1}
+        <button className="bg-yellow-400 text-black rounded-full w-7 h-7 m-2">
+          {currentPage}
         </button>
-      )}
 
-      <button className="bg-yellow-400 text-black rounded-full w-9 h-9 m-2">
-        {currentPage}
-      </button>
-
-      {currentPage < 40 && (
-        <button
-          onClick={() => setPage("select", currentPage + 1)}
-          className="m-2 w-9 h-9 rounded-full border-yellow-500 border-2"
-        >
-          {currentPage + 1}
-        </button>
-      )}
-
-      {currentPage < 39 && (
-        <>
-          <span className="tetx-white font-bold text-xl m-2">...</span>
-
+        {currentPage < 40 && (
           <button
-            onClick={() => setPage("select", 40)}
-            className="m-2 w-9 h-9 rounded-full border-yellow-500 border-2"
+            onClick={() => setPage("select", currentPage + 1)}
+            className="mx-2 w-7 h-7 rounded-full border-yellow-500 border-2"
           >
-            40
+            {currentPage + 1}
           </button>
-        </>
-      )}
+        )}
 
-      <button
-        onClick={() => setPage("next")}
-        className="text-yellow-500 p-2 m-2"
-      >
-        Next
-      </button>
+        {currentPage < 39 && (
+          <>
+            <span className="tetx-white font-bold text-xl">...</span>
+
+            <button
+              onClick={() => setPage("select", 40)}
+              className="mx-2 w-7 h-7 rounded-full border-yellow-500 border-2"
+            >
+              40
+            </button>
+          </>
+        )}
+      </div>
+
+      <div>
+        <button
+          onClick={() => setPage("prev")}
+          className="text-yellow-500 outline-none p-1 px-3 mx-2"
+        >
+          {"<<"} Previous
+        </button>
+        <button
+          onClick={() => setPage("next")}
+          className="text-yellow-500 outline-none p-2 mx-2"
+        >
+          Next {">>"}
+        </button>
+      </div>
     </div>
   );
 }
