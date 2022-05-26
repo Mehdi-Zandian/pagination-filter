@@ -18,6 +18,10 @@
   @apply bg-transparent cursor-pointer border-yellow-500 border-2 rounded p-1 text-yellow-500;
 }
 
+html {
+  @apply scroll-smooth;
+}
+
 /* loading spinner */
 .loader {
   position: absolute;

@@ -1,9 +1,17 @@
 function PageButtons({ setPage, pages, page }) {
+  // go to top on each click
+  const goToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="flex mx-auto flex-col justify-center md:text-base text-xs pb-40 items-center text-white">
       <div className="flex items-center justify-between">
         <button
-          onClick={() => setPage("firstLastPage", "firstPage")}
+          onClick={() => {
+            setPage("firstLastPage", "firstPage");
+            goToTop();
+          }}
           className="mx-2 w-8 h-8 rounded-full border-yellow-500 border-2"
         >
           {1}
@@ -14,7 +22,10 @@ function PageButtons({ setPage, pages, page }) {
         <div>
           {page - 1 > 0 && (
             <button
-              onClick={() => setPage("prevSelect")}
+              onClick={() => {
+                setPage("prevSelect");
+                goToTop();
+              }}
               className="mx-2 w-8 h-8 rounded-full border-yellow-500 border-2"
             >
               {page - 1}
@@ -27,7 +38,10 @@ function PageButtons({ setPage, pages, page }) {
 
           {page < pages - 1 && (
             <button
-              onClick={() => setPage("nextSelect")}
+              onClick={() => {
+                setPage("nextSelect");
+                goToTop();
+              }}
               className="mx-2 w-7 h-7 rounded-full border-yellow-500 border-2"
             >
               {page + 1}
@@ -38,7 +52,10 @@ function PageButtons({ setPage, pages, page }) {
         <span className="mx-2">...</span>
 
         <button
-          onClick={() => setPage("firstLastPage", "lastPage")}
+          onClick={() => {
+            setPage("firstLastPage", "lastPage");
+            goToTop();
+          }}
           className="mx-2 w-7 h-7 rounded-full border-yellow-500 border-2"
         >
           {pages - 1 != 0 ? pages - 1 : pages}
@@ -47,13 +64,19 @@ function PageButtons({ setPage, pages, page }) {
 
       <div>
         <button
-          onClick={() => setPage("prevPage")}
+          onClick={() => {
+            setPage("prevPage");
+            goToTop();
+          }}
           className="text-yellow-500 outline-none p-1 px-3 mx-2"
         >
           {"<"} Previous
         </button>
         <button
-          onClick={() => setPage("nextPage")}
+          onClick={() => {
+            setPage("nextPage");
+            goToTop();
+          }}
           className="text-yellow-500 outline-none p-2 mx-2"
         >
           Next {">"}
