@@ -14,6 +14,10 @@
   @apply rounded-t-xl md:rounded-tr-none md:rounded-bl-xl object-center object-cover w-full h-full;
 }
 
+.select__list {
+  @apply bg-transparent cursor-pointer border-yellow-500 border-2 rounded p-1 text-yellow-500;
+}
+
 /* loading spinner */
 .loader {
   position: absolute;

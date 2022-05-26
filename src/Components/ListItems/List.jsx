@@ -1,9 +1,7 @@
 import Card from "./Card";
 
 function List({ chars }) {
-  // select only 6 chars
-  const selectedChars = chars?.slice(6, 12);
-
+  const selectedChars = chars[0].slice(0, 8);
   return (
     <div>
       <div className="text-white flex flex-wrap justify-center p-5">

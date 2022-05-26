@@ -5,9 +5,9 @@ import "lazysizes/plugins/parent-fit/ls.parent-fit";
 function Card({ char }) {
   return (
     <div className="card">
-      <div className="md:w-60">
+      <div className="md:w-60 min-h-[240px]">
         <img
-          className="card__img lazyload blur-up"
+          className="card__img h-full lazyload blur-up"
           data-src={char?.image}
           alt="Character Image"
         />
