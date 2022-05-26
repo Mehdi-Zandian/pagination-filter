@@ -54,9 +54,15 @@ function ListItems() {
   const setPage = (type, page = "") => {
     const newQueries = new URLSearchParams(searchParams.toString());
 
-    if (type == "nextPage" && params[0].page < chars[1] - 1) {
+    if (
+      type == "nextPage" ||
+      (type == "nextSelect" && params[0].page < chars[1] - 1)
+    ) {
       newQueries.set("page", params[0].page + 1);
-    } else if (type == "prevPage" && params[0].page > 1) {
+    } else if (
+      type == "prevPage" ||
+      (type == "prevSelect" && params[0].page > 1)
+    ) {
       newQueries.set("page", params[0].page - 1);
     } else if (type == "firstLastPage") {
       page == "lastPage"

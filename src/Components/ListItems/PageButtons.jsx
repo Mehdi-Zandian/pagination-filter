@@ -13,7 +13,10 @@ function PageButtons({ setPage, pages, page }) {
 
         <div>
           {page - 1 > 0 && (
-            <button className="mx-2 w-8 h-8 rounded-full border-yellow-500 border-2">
+            <button
+              onClick={() => setPage("prevSelect")}
+              className="mx-2 w-8 h-8 rounded-full border-yellow-500 border-2"
+            >
               {page - 1}
             </button>
           )}
@@ -23,7 +26,10 @@ function PageButtons({ setPage, pages, page }) {
           </button>
 
           {page < pages - 1 && (
-            <button className="mx-2 w-7 h-7 rounded-full border-yellow-500 border-2">
+            <button
+              onClick={() => setPage("nextSelect")}
+              className="mx-2 w-7 h-7 rounded-full border-yellow-500 border-2"
+            >
               {page + 1}
             </button>
           )}
